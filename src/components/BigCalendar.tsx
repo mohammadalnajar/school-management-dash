@@ -24,7 +24,8 @@ const BigCalendar = () => {
             border: 'none',
             padding: '10px',
             margin: '10px',
-            width: '99%'
+            width: '99%',
+            flexFlow: 'column'
         };
         return { style };
     };
