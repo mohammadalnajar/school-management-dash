@@ -15,6 +15,20 @@ const BigCalendar = () => {
         setView(selectedView);
     };
 
+    const eventStyleGetter = (event: any) => {
+        const backgroundColor = event.bgColor || '#3174ad'; // Default color if not provided
+        const textColor = event.textColor || 'white'; // Default color if not provided
+        const style = {
+            backgroundColor,
+            color: textColor, // Adjust text color for better contrast
+            border: 'none',
+            padding:'10px' ,
+            margin: '10px',
+            width: '99%'
+        };
+        return { style };
+    };
+
     return (
         <Calendar
             localizer={localizer}
@@ -27,6 +41,7 @@ const BigCalendar = () => {
             onView={handleOnChangeView}
             min={new Date(2025, 1, 0, 8, 0, 0)}
             max={new Date(2025, 1, 0, 17, 0, 0)}
+            eventPropGetter={eventStyleGetter}
         />
     );
 };
