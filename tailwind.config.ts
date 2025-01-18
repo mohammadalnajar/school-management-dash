@@ -14,7 +14,7 @@ const config: Config = {
             },
             colors: {
                 smdSkyBlue: '#C3EBFA',
-                smdSkyLightBlue: '#EDF9FD',
+                smdSkyLight: '#EDF9FD',
                 smdPurple: '#CFCEFF',
                 smdPurpleLight: '#F1F0FF',
                 smdYellow: '#FAE27C',
