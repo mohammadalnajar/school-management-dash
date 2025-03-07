@@ -125,8 +125,7 @@ const TeacherListPage = async ({
             }
         }
     }
-    console.log(query, 'query');
-    console.log(searchParams, 'search');
+
     const [teachers, count] = await prisma.$transaction([
         prisma.teacher.findMany({
             where: query,
