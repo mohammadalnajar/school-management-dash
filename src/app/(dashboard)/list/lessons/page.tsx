@@ -75,10 +75,26 @@ const LessonListPage = async ({
                         query.classId = Number(value);
                         break;
                     case 'search':
-                        query.name = {
-                            contains: value,
-                            mode: 'insensitive'
-                        };
+                        // search by lesson name or teacher name
+                        query.OR = [
+                            {
+                                subject: {
+                                    name: {
+                                        contains: value,
+                                        mode: 'insensitive'
+                                    }
+                                }
+                            },
+                            {
+                                teacher: {
+                                    name: {
+                                        contains: value,
+                                        mode: 'insensitive'
+                                    }
+                                }
+                            }
+                        ];
+
                         break;
 
                     default:
