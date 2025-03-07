@@ -2,11 +2,13 @@ import Announcements from '@/components/Announcements';
 import BigCalendar from '@/components/BigCalendar';
 import FormModal from '@/components/FormModal';
 import Performance from '@/components/Performance';
-import { role } from '@/lib/data';
+import { currentUser } from '@clerk/nextjs/server';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const SingleTeacherPage = () => {
+const SingleTeacherPage = async () => {
+    const user = await currentUser();
+    const role = user?.publicMetadata.role as string;
     return (
         <div className='flex-1 p-4 flex flex-col gap-4 xl:flex-row'>
             {/* LEFT */}
