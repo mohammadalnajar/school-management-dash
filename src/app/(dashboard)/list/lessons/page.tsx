@@ -68,10 +68,12 @@ const LessonListPage = async ({
             if (value) {
                 switch (key) {
                     case 'teacherId':
-                        query.teacherId = value;
+                        query.teacherId = String(value);
 
                         break;
-
+                    case 'classId':
+                        query.classId = Number(value);
+                        break;
                     case 'search':
                         query.name = {
                             contains: value,
@@ -90,9 +92,9 @@ const LessonListPage = async ({
         prisma.lesson.findMany({
             where: query,
             include: {
-                class: true,
-                teacher: true,
-                subject: true
+                class: { select: { name: true } },
+                teacher: { select: { name: true } },
+                subject: { select: { name: true } }
             },
 
             take: ITEMS_PER_PAGE,
