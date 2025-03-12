@@ -75,7 +75,7 @@ const AnnouncementListPage = () => {
             {/* LIST */}
             <Table columns={columns} renderRow={renderRow} data={announcementsData} />
             {/* PAGINATION */}
-            <Pagination />
+            {/* <Pagination  /> */}
         </div>
     );
 };
